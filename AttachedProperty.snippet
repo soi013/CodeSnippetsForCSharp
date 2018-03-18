@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AttachedProperty</Title>
+      <Shortcut>propa</Shortcut>
+      <Description>添付プロパティを作成します</Description>
+      <Author>soi</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>プロパティの型</ToolTip>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>プロパティ名</ToolTip>
+          <Default>MyProperty</Default>
+        </Literal>
+        <Literal>
+          <ID>ownerclass</ID>
+          <Function>ClassName()</Function>
+          <ToolTip>プロパティを登録している所有者の型</ToolTip>
+          <Default>ignor this element</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultvalue</ID>
+          <ToolTip>PropertyMetadataの既定値</ToolTip>
+          <Default></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+#region $property$添付プロパティ
+public static $type$ Get$property$(DependencyObject obj) => ($type$)obj.GetValue($property$Property);
+public static void Set$property$(DependencyObject obj, $type$ value) => obj.SetValue($property$Property, value);
+public static readonly DependencyProperty $property$Property =
+    DependencyProperty.RegisterAttached("$property$", typeof($type$), typeof($ownerclass$), new PropertyMetadata($defaultvalue$default($type$)));
+#endregion
+$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

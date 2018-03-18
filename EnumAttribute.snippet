@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Attribute and Getter</Title>
+      <Author>Fukasawa</Author>
+      <Shortcut>attrg</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>属性の名前</ToolTip>
+          <Default>My</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>属性の型</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultValue</ID>
+          <ToolTip>属性が定義されていなかった場合の値</ToolTip>
+          <Default>value.ToString()</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[[AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
+    public sealed class $name$Attribute : Attribute
+    {
+        public $type$ $name$ { get; private set; }
+
+        public $name$Attribute($type$ $name$)
+        {
+            this.$name$ = $name$;
+        }
+    }
+    
+    public static $type$ Get$name$(this Enum value)
+    {
+        return value.GetAttribute<$name$Attribute>()?.$name$
+            ?? $defaultValue$;
+    }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
