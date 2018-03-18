@@ -25,22 +25,29 @@
         </Literal>
       </Declarations>
       <Code Language="csharp">
-        <![CDATA[[AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
+        <![CDATA[
+    #region $name$属性
+    /// <summary>
+    /// $name$属性
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
     public sealed class $name$Attribute : Attribute
     {
         public $type$ $name$ { get; private set; }
 
         public $name$Attribute($type$ $name$)
-        {
-            this.$name$ = $name$;
-        }
+            {
+                this.$name$ = $name$;
+            }
     }
-    
+    /// <summary>
+    /// $name$属性の取得
+    /// </summary>
     public static $type$ Get$name$(this Enum value)
-    {
-        return value.GetAttribute<$name$Attribute>()?.$name$
+        => value.GetAttribute<$name$Attribute>()?.$name$
             ?? $defaultValue$;
-    }]]>
+    #endregion
+    ]]>
       </Code>
     </Snippet>
   </CodeSnippet>
