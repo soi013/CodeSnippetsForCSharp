@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SwitchExpression</Title>
+      <Author>soi</Author>
+      <Description>switch 式を生成します。</Description>
+      <Shortcut>switchex</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>expressionswitch</ID>
+          <ToolTip>expression switch</ToolTip>
+          <Default>expression</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>case1</ID>
+          <Default>case1</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>value1</ID>
+          <Default>value1</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>defaultValue</ID>
+          <Default>defaultValue</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[$expressionswitch$ switch
+{
+    $case1$ => $value1$,
+    _ => $defaultValue$
+};]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
