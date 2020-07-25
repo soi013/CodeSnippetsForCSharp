@@ -1,1 +1,1 @@
-# CodeSnippetsForCSharp
+# C# 用のコードスニペット集です。
